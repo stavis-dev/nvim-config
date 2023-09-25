@@ -13,6 +13,12 @@ vim.opt.virtualedit = "block"
 vim.opt.undofile = true
 vim.opt.shell = "/bin/zsh"
 
+-- Swapfile not make
+vim.opt.swapfile = false
+
+vim.cmd("autocmd FileType python set colorcolumn=79")
+
+
 -- Mouse
 vim.opt.mouse = "a"
 vim.opt.mousefocus = true
@@ -52,3 +58,5 @@ vim.opt.fillchars = {
 
 vim.cmd([[highlight clear LineNr]])
 vim.cmd([[highlight clear SignColumn]])
+
+

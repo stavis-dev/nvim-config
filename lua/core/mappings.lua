@@ -32,3 +32,6 @@ vim.keymap.set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<CR>')
 vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>')
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=40<CR>')
+
+-- Run Python and C files by Ctrl+h
+vim.keymap.set('n', '<leader>tr', ':TermExec cmd="python3.11 %"<CR>')

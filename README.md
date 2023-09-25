@@ -1,61 +1,48 @@
 # Nvim as Python / Rust / any another language IDE!
 
-Video (in Russian) — https://www.youtube.com/watch?v=PA7zZNJXJEk
+Video (in Russian) — [Частично](https://www.youtube.com/watch?v=PA7zZNJXJEk)
 
 For Mac OS:
 
 ## Install Required software:
 
-```sh
+```bash
 arch -arm64 brew install nvim
 brew install rust-analyzer
 npm install -g pyright
 ```
 
-## Add plugin manager
+## Packed Plugins
 
-I use [vim-plug](https://github.com/junegunn/vim-plug)  
-for install
+- [lazy.nvim](https://github.com/folke/lazy.nvim)
+- [mason.nvim](https://github.com/williamboman/mason.nvim)
+- [neo-tree](https://github.com/nvim-tree/nvim-tree.lua)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [cmp](https://github.com/hrsh7th/nvim-cmp)
+- [lspkind](https://github.com/onsails/lspkind.nvim)
+- [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [trouble.nvim](https://github.com/folke/trouble.nvim)
+- [Tree Sitter](https://github.com/tree-sitter/tree-sitter)
+- [sonokai](https://github.com/sainnhe/sonokai)
 
-```shell
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+## Configs
+
+Теперь конфиг файл написан полностью на `lua`
+
+```lua
+completion = {
+    autocomplete = false
+  },
 ```
 
-## Add config file
+Отключена функция создания swap файла.
 
-Make file in
-
-`~/.config/nvim/init.vim` file:
-
-Add content below:
+```lua title="configs.lua"
+-- Swapfile not make
+vim.opt.swapfile = false
+```
 
 ```vim
-set mouse=a  " enable mouse
-set encoding=utf-8
-set number
-set noswapfile
-set scrolloff=7
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-set fileformat=unix
-filetype indent on      " load filetype-specific indent files
-
-inoremap jk <esc>
-
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
-
 
 " color schemas
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
